@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: weather_app
+    command: python main.py
+    environment:
+      - DATABASE_URL=postgresql://user:pass@db:5432/weather_db
+      - OPENWEATHER_API_KEY=924717f30abe175bc8c2c15f0714c65d
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+      
+  db:
+    image: postgres:13
+    container_name: weather_db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: weather_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+     - "5433:5432"
+
+
+volumes:
+  postgres_data:

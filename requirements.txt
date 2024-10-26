@@ -1,0 +1,12 @@
+apscheduler==3.9.1
+sqlalchemy==2.0.20
+psycopg2-binary==2.9.6
+pandas==2.1.1
+python-dateutil==2.8.2
+requests==2.31.0
+fastapi==0.95.0
+uvicorn==0.23.2
+pytest==7.3.2
+pytest-mock==3.11.1
+matplotlib==3.8.0
+simplejson==3.19.1
